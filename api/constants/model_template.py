@@ -1,6 +1,7 @@
+from typing import Any
 import json
 
-model_templates = {
+model_templates: dict[str, Any]  = {
     # completion default mode
     'completion_default': {
         'app': {

@@ -43,7 +43,7 @@ class Callback(ABC):
     def on_new_chunk(self, llm_instance: AIModel, chunk: LLMResultChunk, model: str, credentials: dict,
                      prompt_messages: list[PromptMessage], model_parameters: dict,
                      tools: Optional[list[PromptMessageTool]] = None, stop: Optional[list[str]] = None,
-                     stream: bool = True, user: Optional[str] = None):
+                     stream: bool = True, user: Optional[str] = None) -> None:
         """
         On new chunk callback
 

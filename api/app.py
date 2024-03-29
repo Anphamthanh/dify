@@ -1,5 +1,5 @@
 import os
-
+from typing import Any
 from werkzeug.exceptions import Unauthorized
 
 if not os.environ.get("DEBUG") or os.environ.get("DEBUG").lower() != 'true':
@@ -238,7 +238,7 @@ def threads():
 
 
 @app.route('/db-pool-stat')
-def pool_stat():
+def pool_stat() -> dict[str, Any]:
     engine = db.engine
     return {
         'pool_size': engine.pool.size(),

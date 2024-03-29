@@ -1,10 +1,10 @@
 import json
-
+from typing import Any
 from models.model import AppModelConfig
 
-languages = ['en-US', 'zh-Hans', 'pt-BR', 'es-ES', 'fr-FR', 'de-DE', 'ja-JP', 'ko-KR', 'ru-RU', 'it-IT', 'uk-UA', 'vi-VN']
+languages: list[str] = ['en-US', 'zh-Hans', 'pt-BR', 'es-ES', 'fr-FR', 'de-DE', 'ja-JP', 'ko-KR', 'ru-RU', 'it-IT', 'uk-UA', 'vi-VN']
 
-language_timezone_mapping = {
+language_timezone_mapping: dict[str, str] = {
     'en-US': 'America/New_York',
     'zh-Hans': 'Asia/Shanghai',
     'pt-BR': 'America/Sao_Paulo',
@@ -20,7 +20,7 @@ language_timezone_mapping = {
 }
 
 
-def supported_language(lang):
+def supported_language(lang: str) -> str:
     if lang in languages:
         return lang
 
@@ -29,7 +29,7 @@ def supported_language(lang):
     raise ValueError(error)
 
 
-user_input_form_template = {
+user_input_form_template: dict[str, Any] = {
     "en-US": [
         {
             "paragraph": {
@@ -92,7 +92,7 @@ user_input_form_template = {
     ],
 }
 
-demo_model_templates = {
+demo_model_templates: dict[str, Any] = {
     'en-US': [
         {
             'name': 'Translation Assistant',

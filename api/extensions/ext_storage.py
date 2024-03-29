@@ -3,7 +3,7 @@ import shutil
 from collections.abc import Generator
 from contextlib import closing
 from datetime import datetime, timedelta
-from typing import Union
+from typing import Union, Optional
 
 import boto3
 from azure.storage.blob import AccountSasPermissions, BlobServiceClient, ResourceTypes, generate_account_sas
@@ -14,7 +14,7 @@ from flask import Flask
 
 class Storage:
     def __init__(self):
-        self.storage_type = None
+        self.storage_type: Optional[str] = None
         self.bucket_name = None
         self.client = None
         self.folder = None
