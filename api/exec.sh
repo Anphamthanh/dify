@@ -2,8 +2,7 @@
 
 set -e
 
-export $(grep -v '^#' .env | xargs)
 
 if [ "$1" = "run" ]; then
-	PYTHONPATH=`pwd` python -m app
+	flask run --host 0.0.0.0 --port=5001 --debug
 fi

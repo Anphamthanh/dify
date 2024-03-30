@@ -149,7 +149,7 @@ class LLMGenerator:
         return rule_config
 
     @classmethod
-    def generate_qa_document(cls, tenant_id: str, query, document_language: str):
+    def generate_qa_document(cls, tenant_id: str, query: str, document_language: str):
         prompt = GENERATOR_QA_PROMPT.format(language=document_language)
 
         model_manager = ModelManager()
@@ -166,7 +166,7 @@ class LLMGenerator:
         response = model_instance.invoke_llm(
             prompt_messages=prompt_messages,
             model_parameters={
-                "max_tokens": 2000
+                # "max_tokens": 3000
             },
             stream=False
         )
